@@ -8,10 +8,8 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.KafkaProducer;
 
-import java.util.Arrays;
 import java.util.Collections;
 
-import java.util.Properties;
 
 class main {
     public static void main(String[] args){
@@ -43,7 +41,7 @@ class main {
 
 //        }
 
-// bin/kafka-verifiable-producer.sh --topic topicForTest --max-messages 200 --broker-list localhost:9092
+// bin/kafka-verifiable-producer.sh --topic CustomerCountry --max-messages 200 --broker-list localhost:9092
     }
 }
 
@@ -54,7 +52,7 @@ class producerThread extends Thread {
 
 
         try {
-            for (int i = 0; i < 10 ; i++) {
+            for (int i = 0; i < 100 ; i++) {
                 ProducerRecord<String, String> record = new ProducerRecord<String, String>(
                         "CustomerCountry",
                         "Precision Products",
