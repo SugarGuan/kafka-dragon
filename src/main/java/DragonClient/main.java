@@ -61,10 +61,11 @@ class producerThread extends Thread {
                         "json" + i
                 );
                 producer.send(record);
-                Thread.sleep(1000);
                 System.out.println("-------------------S-------------------");
                 System.out.println("Sending message:    Value = json" + i);
                 System.out.println("-------------------S--------------------");
+                Thread.sleep(1000);
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -90,6 +91,7 @@ class consumerThread extends Thread {
 
                 }
                 System.out.println("-------------------R-------------------");
+
             }
         } catch (Exception e){
             e.printStackTrace();

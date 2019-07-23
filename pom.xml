@@ -12,6 +12,30 @@
         <sourceDirectory>D:/Project/Java/kafka-dragon/src/main/java</sourceDirectory>
         <outputDirectory>D:/Project/Java/kafka-dragon/target/classes</outputDirectory>
         <defaultGoal>install</defaultGoal>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>DragonClient.main</manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>assembly</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+            </plugin>
+        </plugins>
     </build>
 
     <dependencies>
@@ -31,6 +55,7 @@
             <version>1.7.2</version>
         </dependency>
     </dependencies>
+
 
 
 </project>
