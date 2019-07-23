@@ -61,7 +61,7 @@ class producerThread extends Thread {
                 producer.send(record);
                 System.out.println("-------------------SS------------------");
                 System.out.println("Sending message:    Value = json" + i);
-                System.out.println("-------------------SF-------------------");
+                System.out.println("-------------------SF------------------");
                 Thread.sleep(1000);
 
             }
