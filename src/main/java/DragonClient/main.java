@@ -34,32 +34,32 @@ class producerThread extends Thread {
         User Xin = new User("Jelly",250);
 
         try {
-//            for (int i = 0; i < 10 ; i++) {
+            for (int i = 0; i < 10 ; i++) {
                 ProducerRecord<String, String> record = new ProducerRecord<String, String>(
                         "CustomerCountry",
                         "Precision Products",
                         JSONParser.toJSONString(Liu)
                 );
                 producer.send(record);
-                System.out.println("-------------------SS------------------");
+//                System.out.println("-------------------SS------------------");
                 System.out.println("Send:" + JSONParser.toJSONString(Liu));
-                System.out.println("-------------------SF------------------");
+//                System.out.println("-------------------SF------------------");
                 Thread.sleep(1000);
 
-                ProducerRecord<String, String> record2 = new ProducerRecord<String, String>(
-                        "CustomerCountry",
-                        "Precision Products",
-                        JSONParser.toJSONString(Xin)
-                );
-                producer.send(record2);
-                System.out.println("-------------------SS------------------");
-                System.out.println("Send: " +JSONParser.toJSONString(Xin));
-                System.out.println("-------------------SF------------------");
-                Thread.sleep(1000);
+//                ProducerRecord<String, String> record2 = new ProducerRecord<String, String>(
+//                        "CustomerCountry",
+//                        "Precision Products",
+//                        JSONParser.toJSONString(Xin)
+//                );
+//                producer.send(record2);
+////                System.out.println("-------------------SS------------------");
+//                System.out.println("Send: " +JSONParser.toJSONString(Xin));
+////                System.out.println("-------------------SF------------------");
+//                Thread.sleep(1000);
 
 
 
-//            }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -75,7 +75,7 @@ class consumerThread extends Thread {
         try {
             while (true) {
 //                System.out.println("Entered Consumer generation branch");
-                System.out.println("-------------------RS------------------");
+//                System.out.println("-------------------RS------------------");
                 ConsumerRecords<String, String> records = consumer.poll(1000);
 //                System.out.println("Completed Consumer Record generation");
                 for (ConsumerRecord<String, String> record : records) {
@@ -83,7 +83,7 @@ class consumerThread extends Thread {
                     System.out.println("Received : " + record.value());
 
                 }
-                System.out.println("-------------------RF------------------");
+//                System.out.println("-------------------RF------------------");
 
             }
         } catch (Exception e){
