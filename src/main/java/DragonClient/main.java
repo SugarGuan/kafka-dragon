@@ -1,7 +1,9 @@
 package DragonClient;
 
+import Producer.JSONParser;
 import Producer.ProducerFactory;
 import Consumer.ConsumerFactory;
+import Producer.User;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -28,21 +30,36 @@ class producerThread extends Thread {
     public void run(){
         KafkaProducer<String, String> producer = ProducerFactory.getInstance();
 
+        User Liu = new User("Wang5",38);
+        User Xin = new User("Jelly",250);
 
         try {
-            for (int i = 0; i < 100 ; i++) {
+//            for (int i = 0; i < 10 ; i++) {
                 ProducerRecord<String, String> record = new ProducerRecord<String, String>(
                         "CustomerCountry",
                         "Precision Products",
-                        "json" + i
+                        JSONParser.toJSONString(Liu)
                 );
                 producer.send(record);
                 System.out.println("-------------------SS------------------");
-                System.out.println("Sending message:    Value = json" + i);
+                System.out.println("Send:" + JSONParser.toJSONString(Liu));
                 System.out.println("-------------------SF------------------");
                 Thread.sleep(1000);
 
-            }
+                ProducerRecord<String, String> record2 = new ProducerRecord<String, String>(
+                        "CustomerCountry",
+                        "Precision Products",
+                        JSONParser.toJSONString(Xin)
+                );
+                producer.send(record2);
+                System.out.println("-------------------SS------------------");
+                System.out.println("Send: " +JSONParser.toJSONString(Xin));
+                System.out.println("-------------------SF------------------");
+                Thread.sleep(1000);
+
+
+
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
