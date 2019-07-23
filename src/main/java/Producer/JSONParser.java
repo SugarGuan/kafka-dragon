@@ -8,12 +8,11 @@ public class JSONParser {
         try {
             return JSON.toJSONString(object);
         }catch (Exception e){
-            System.out.println("当前Java对象（实例）无法转换成json格式");
+            System.out.println("当前Java对象（实例）无法转换成json格式 - 1");
 
         }
-        finally {
-            return "当前Java对象（实例）无法转换成json格式";
-        }
+        return "当前Java对象（实例）无法转换成json格式 - 2";
+
     }
 
 //    public static JSON toJSON(String str) {
