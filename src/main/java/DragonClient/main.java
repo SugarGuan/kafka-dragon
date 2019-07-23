@@ -59,9 +59,9 @@ class producerThread extends Thread {
                         "json" + i
                 );
                 producer.send(record);
-                System.out.println("-------------------S-------------------");
+                System.out.println("-------------------SS------------------");
                 System.out.println("Sending message:    Value = json" + i);
-                System.out.println("-------------------S--------------------");
+                System.out.println("-------------------SF-------------------");
                 Thread.sleep(1000);
 
             }
@@ -80,7 +80,7 @@ class consumerThread extends Thread {
         try {
             while (true) {
 //                System.out.println("Entered Consumer generation branch");
-                System.out.println("-------------------R-------------------");
+                System.out.println("-------------------RS------------------");
                 ConsumerRecords<String, String> records = consumer.poll(1000);
 //                System.out.println("Completed Consumer Record generation");
                 for (ConsumerRecord<String, String> record : records) {
@@ -88,7 +88,7 @@ class consumerThread extends Thread {
                     System.out.println("Received : " + record.value());
 
                 }
-                System.out.println("-------------------R-------------------");
+                System.out.println("-------------------RF------------------");
 
             }
         } catch (Exception e){
