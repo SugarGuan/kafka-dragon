@@ -1,4 +1,4 @@
-package Producer;
+package producer;
 
 import com.alibaba.fastjson.JSON;
 

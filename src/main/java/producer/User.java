@@ -1,4 +1,4 @@
-package Producer;
+package producer;
 
 public class User {
     private String username;
