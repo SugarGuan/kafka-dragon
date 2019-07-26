@@ -1,9 +1,9 @@
-package DragonClient;
+package dragon.client;
 
-import Producer.JSONParser;
-import Producer.ProducerFactory;
-import Consumer.ConsumerFactory;
-import Producer.User;
+import producer.JSONParser;
+import producer.ProducerFactory;
+import consumer.ConsumerFactory;
+import producer.User;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -21,7 +21,7 @@ class main {
         producerThread pt = new producerThread();
         consumerThread ct = new consumerThread();
         ct.start();
-        pt.start();
+//        pt.start();
     }
 }
 
@@ -34,9 +34,9 @@ class producerThread extends Thread {
         User Xin = new User("Jelly",250);
 
         try {
-            for (int i = 0; i < 10 ; i++) {
+            for (int i = 0; i < 1000 ; i++) {
                 ProducerRecord<String, String> record = new ProducerRecord<String, String>(
-                        "CustomerCountry",
+                        "test",
                         "Precision Products",
                         JSONParser.toJSONString(Liu)
                 );
@@ -70,7 +70,7 @@ class consumerThread extends Thread {
     @Override
     public void run () {
         KafkaConsumer<String, String> consumer = ConsumerFactory.getInstance();
-        consumer.subscribe(Collections.singletonList("CustomerCountry"));
+        consumer.subscribe(Collections.singletonList("test"));
 //        System.out.println("Consumer created successfully");
         try {
             while (true) {

@@ -54,7 +54,7 @@
                     <archive>
                         <mainfest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>dragonClient.main</mainClass>
+                            <mainClass>dragon.client.main</mainClass>
                         </mainfest>
                     </archive>
                 </configuration>
